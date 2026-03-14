@@ -1195,10 +1195,10 @@ class OrgExecuteSourceBlock:
                     try:
                         self.filename = tmp.name
                         if(hasattr(self.curmod,"WrapStart")):
-                            tmp.write((self.curmod.WrapStart(self) + "\n").encode("ascii"))
-                        tmp.write(self.source.encode('ascii'))
+                            tmp.write((self.curmod.WrapStart(self) + "\n").encode('utf-8'))
+                        tmp.write(self.source.encode('utf-8'))
                         if(hasattr(self.curmod,"WrapEnd")):
-                            tmp.write(("\n" + self.curmod.WrapEnd(self)).encode("ascii"))
+                            tmp.write(("\n" + self.curmod.WrapEnd(self)).encode('utf-8'))
                         tmp.close() 
                         self.outputs = self.curmod.Execute(self,sets)
                     except:
@@ -1463,10 +1463,10 @@ class OrgExecuteInlineSourceBlock:
                     try:
                         self.filename = tmp.name
                         if(hasattr(self.curmod,"WrapStart")):
-                            tmp.write((self.curmod.WrapStart(self) + "\n").encode("ascii"))
-                        tmp.write(self.source.encode('ascii'))
+                            tmp.write((self.curmod.WrapStart(self) + "\n").encode('utf-8'))
+                        tmp.write(self.source.encode('utf-8'))
                         if(hasattr(self.curmod,"WrapEnd")):
-                            tmp.write(("\n" + self.curmod.WrapEnd(self)).encode("ascii"))
+                            tmp.write(("\n" + self.curmod.WrapEnd(self)).encode('utf-8'))
                         tmp.close() 
                         self.outputs = self.curmod.Execute(self,sets)
                     except:
@@ -1594,9 +1594,9 @@ class OrgTangleFileCommand(sublime_plugin.TextCommand):
                     filename = os.path.splitext(filename)[0]+self.curmod.Extension(self)
                     try:
                         if(hasattr(self.curmod,"WrapStart")):
-                            self.source = ((self.curmod.WrapStart(self) + "\n").encode("ascii")) + self.source
+                            self.source = ((self.curmod.WrapStart(self) + "\n").encode('utf-8')) + self.source
                         if(hasattr(self.curmod,"WrapEnd")):
-                            self.source += (("\n" + self.curmod.WrapEnd(self)).encode("ascii"))
+                            self.source += (("\n" + self.curmod.WrapEnd(self)).encode('utf-8'))
                     except:
                         log.debug(" " + traceback.format_exc())
                 else:

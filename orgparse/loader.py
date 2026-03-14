@@ -114,8 +114,8 @@ True
 import codecs
 
 import OrgExtended.orgparse.node as node
-import OrgExtended.orgparse.utils.py3compat as bs
 #from .node import parse_lines
+#import OrgExtended.orgparse.utils.py3compat as bs
 #from .utils.py3compat import basestring
 import OrgExtended.asettings as sets
 
@@ -162,7 +162,7 @@ def load(path):
     """
     try:
 
-        if isinstance(path, bs.basestring):
+        if isinstance(path, str):
             orgfile = codecs.open(path, encoding='utf-8-sig')
             filename = path
         else:
@@ -171,7 +171,7 @@ def load(path):
         return loadi((l.rstrip('\n') for l in orgfile.readlines()),filename=filename)
     except:
         bom = bomType(path)
-        if isinstance(path, bs.basestring):
+        if isinstance(path, str):
             orgfile = codecs.open(path, encoding=bom)
             filename = path
         else:

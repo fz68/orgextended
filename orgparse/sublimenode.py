@@ -11,7 +11,6 @@ except ImportError:
   from collections import Sequence
 from .date import OrgDate, OrgDateClock, OrgDateRepeatedTask, parse_sdc
 from .inline import to_plain_text
-from .utils.py3compat import PY3, unicode
 import copy
 from .startup import *
 import OrgExtended.asettings as sets
